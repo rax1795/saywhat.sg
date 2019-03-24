@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Saywhat.sg</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{url_for('static',filename='vendor/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{url_for('static',filename='css/styles.css')}}" rel="stylesheet">
+    <link href="{{url_for('static',filename='css/animate.css')}}" rel="stylesheet">
+
+  </head>
+
+    <body class="index-reg-bg login-background">
+
+      <br><br>
+
+      <h1 style="text-align:center;font-size:60px;color:#fff" class="header-text animate animated flipInX">SAYWHAT.SG</h1>
+
+        <div class="container d-flex justify-content-center w-75">
+
+        <div class="row">
+
+
+        <div class="col-sm">
+          <div class="card text-white card-bg-light animated fadeInUp">
+            <div class="card-body" style="text-align:center;">
+
+                <h3 class="card-title header-text" style="font-size:45px;color:#343239;position:relative;">Register</h3>
+
+                <form action="" method="post">
+                  {{ form.hidden_tag() }}
+                    <div class="form-group">
+                      <label for="exampleInputUsername1" class="body-text" style="color:#343239;font-weight:bold">Username</label>
+                      {{ form.username(size=32, class_ ='form-control body-text',placeholder="Username", style="text-align:center;height:50px;border-radius: 40px;border:solid 0px; box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.2)") }}
+                      <!-- <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email"> -->
+                      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputUsername1" class="body-text" style="color:#343239;font-weight:bold">NRIC</label>
+                      {{ form.nric(size=32, class_ ='form-control body-text',placeholder="NRIC", style="text-align:center;height:50px;border-radius: 40px;border:solid 0px; box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.2)") }}
+                      <!-- <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email"> -->
+                      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                    </div>
+                    <div class="form-group">
+
+                      <label for="exampleInputUsertype" class="body-text" style="color:#343239;font-weight:bold">Usertype</label>
+                      {{ form.usertype(class_ ='form-control body-text',placeholder="Usertype",style="text-align:center;height:50px;border-radius: 40px;border:solid 0px; box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.2)") }}
+                      <!-- <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email"> -->
+                      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1" class="body-text" style="color:#343239;font-weight:bold">Enter Password</label>
+                      <!-- <input type="password" class="form-control" id="InputPassword" placeholder="Password"> -->
+                      {{ form.password(size=32, class_='form-control body-text',placeholder="Password", style="text-align:center;height:50px;border-radius: 40px;border:solid 0px; box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.2)") }}
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword2" class="body-text" style="color:#343239;font-weight:bold">Re-enter Password</label>
+                      <!-- <input type="password" class="form-control" id="InputPassword" placeholder="Password"> -->
+                      {{ form.password2(size=32, class_='form-control body-text',placeholder="Password", style="text-align:center;height:50px;border-radius: 40px;border:solid 0px; box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.2)") }}
+                    </div>
+
+                    <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+                    {{ form.submit(class_='btn btn-primary', style="font-weight:bold; box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.2)") }}
+                    <br><br>
+                    <a href="/login" class="body-text" style='color:#343239;font-weight:bold'>Already Registered?</a>
+
+            </div>
+          </div>
+        </div>
+
+          </div>
+        </div>
+
+
+
+  <script src="{{url_for('static',filename='vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container">
+
+  <br><br>
+
+  <h1 style="text-align:center;font-size:60px" class="header-text animate animated flipInX">Questions you've posted</h1>
+    <br>
+
+
+      <div class="card-column">
+
+        {% for question in questions %}
+
+  <a href="{{ url_for('result',questionid=question.id) }}">
+  <div class="card card-bg-secondary animate animated fadeInUp">
+    <div class="card-body">
+      <h5 class="card-title header-text" style='color:#fff;font-size:30px'>{{ question.questionTitle }}</h5>
+      <p class="card-text body-text" style='color:#fff;font-weight:bold;font-size:13px'>Posted on {{ question.dateTime.strftime('%Y-%m-%d') }}</p>
+    </a>
+
+    </div>
+  </div>
+
+  <br><br>
+  {% endfor %}
+
+
+        <br><br>
+
+
+
+
+
+
+
+{% endblock %}

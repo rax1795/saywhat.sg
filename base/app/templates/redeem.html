@@ -1,0 +1,56 @@
+ {% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container">
+
+  <br><br>
+
+  <h1 style="text-align:center;font-size:60px" class="header-text animate animated flipInX">Redeem a Gift from us!</h1>
+
+      <h1 style="text-align:center;font-size:30px;color:#f03d33" class="header-text animate animated fadeIn">Current Points: {{ current_user.points }}</h1>
+
+      <br>
+
+    <div id="carouselExampleIndicators" class="carousel slide animate animated fadeIn" data-ride="carousel" style="width: 100%;all">
+  <!-- <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol> -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <center>
+        <img class="d-block w-50" src="{{url_for('static',filename='img/placeholder_promo1.png')}}" alt="First slide"  style="border-radius:30px;" class = "center">
+      </center>
+      
+    </div>
+    <div class="carousel-item">
+      <center>
+        <img class="d-block w-50" src="{{url_for('static',filename='img/placeholder_promo2.png')}}" alt="Second slide"  style="border-radius:30px">
+      </center>
+    </div>
+    <div class="carousel-item">
+      <center>
+        <img class="d-block w-50" src="{{url_for('static',filename='img/placeholder_promo3.png')}}" alt="Third slide" style="border-radius:30px">
+      </center>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev" style="width:60%">
+    <span class="carousel-control-prev-icon" aria-hidden="true" style='background-color:#000'></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next"style="width:60%">
+    <span class="carousel-control-next-icon" aria-hidden="true" style='background-color:#000'></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+
+
+</div>
+
+
+{% endblock %}

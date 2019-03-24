@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container">
+
+  <br><br><br><br>
+
+  <h1 style="text-align:center;font-size:60px" class="header-text animate animated flipInX">Answer a Question!</h1>
+    <br>
+
+    <div class="row">
+
+    <div class="col-sm">
+
+      <div class="card-deck">
+  <div class="card card-bg-secondary animate animated flipInY">
+    <a href="{{ url_for('replyquestion',questionid=question_1.id) }}">
+    <div class="card-body">
+      <h5 class="card-title header-text" style='color:#fff;font-size:30px'>Q. {{question_1.questionTitle}}</h5>
+      <p class="card-text body-text" style='color:#fff;font-weight:bold;'>From {{user_1.username}}</p>
+    </div>
+    </a>
+  </div>
+
+  <div class="card card-bg-secondary animate animated flipInY">
+    <a href="{{ url_for('replyquestion',questionid=question_2.id) }}">
+    <div class="card-body">
+      <h5 class="card-title header-text" style='color:#fff;font-size:30px'>Q. {{question_2.questionTitle}}</h5>
+      <p class="card-text body-text" style='color:#fff;font-weight:bold;'>From {{user_2.username}}</p>
+    </div>
+    </a>
+  </div>
+
+  <div class="card card-bg-secondary animate animated flipInY">
+    <a href="{{ url_for('replyquestion',questionid=question_3.id) }}">
+    <div class="card-body">
+      <h5 class="card-title header-text" style='color:#fff;font-size:30px'>Q. {{question_3.questionTitle}}</h5>
+      <p class="card-text body-text" style='color:#fff;font-weight:bold;'>From {{user_3.username}}</p>
+    </div>
+      </a>
+  </div>
+</div>
+
+    </div>
+
+        </div>
+
+        <br><br>
+      <button id='reload' onclick="location.reload();" type="button" class="btn btn-primary btn-lg btn-block active" style="border-radius:20px;font-size:30px;box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.3);">Reshuffle</button>
+
+      </div>
+
+<script>
+  $('#reload').hover(
+       function(){ $(this).addClass('animated shake') },
+       function(){ $(this).removeClass('animated shake') }
+  )
+</script>
+
+
+{% endblock %}

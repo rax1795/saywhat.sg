@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container">
+
+  <br><br>
+
+  <h1 style="text-align:center;font-size:60px" class="header-text animate animated flipInX">Ask everyone a question!</h1>
+    <br><br>
+
+    <h3 style="text-align:center;font-size:30px" class="body-text animate animated fadeIn">What's your question type?</h3>
+
+    <br><br>
+
+    <div class="row">
+
+    <div class="col-sm">
+
+
+      <div class="card text-white card-bg-secondary animated fadeInUp">
+        <a href='/askquestion/yesno' style='color:#fff'><div class="card-body" style="text-align:center;">
+
+            <p class="card-title body-text" style="font-size:25px;padding-top:15px ;text-align:center;">Yes/No</p>
+
+
+        </div></a>
+      </div>
+    </div>
+
+    <div class="col-sm">
+
+      <div id='prelim' class="card text-white card-bg-secondary animated fadeInUp">
+        <a href='/askquestion/mcq' style='color:#fff'><div class="card-body" style="text-align:center;">
+
+            <p class="card-title body-text" style="font-size:25px;padding-top:15px;text-align:center;">Multiple Choice Question</p>
+
+        </div></a>
+      </div>
+    </div>
+
+    <div class="col-sm">
+
+      <div class="card text-white card-bg-secondary animated fadeInUp">
+        <a href='askquestion/openended' style='color:#fff'><div class="card-body" style="text-align:center;">
+
+            <p class="card-title body-text" style="font-size:25px;padding-top:15px;text-align:center;">Open-Ended</p>
+
+        </div></a>
+      </div>
+    </div>
+
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}

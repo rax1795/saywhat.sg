@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container">
+
+  <br><br>
+
+  <h1 style="text-align:center;font-size:60px" class="header-text animate animated flipInX">Open Question</h1>
+    <br><br>
+    <form method='post'>
+      <h3 style="text-align:center;font-size:25px" class="body-text animate animated fadeIn">{% if question.questionTitle %}<p> {{ question.questionTitle }}</p>{% endif %}</h3>
+      {{ form.hidden_tag() }}
+        <div class="form-group">
+          <label for="exampleInputOptions" class="body-text" style="color:#343239;font-weight:bold">Your Answer</label>
+          {{ form.options( class_ ='form-control body-text',placeholder="Username", style="font-weight:bold") }}
+          <!-- <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email"> -->
+          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+    <br><br>
+    <div style='text-align:center'>
+        {{ form.submit(class_='btn btn-primary animate animated fadeIn', style="font-size:20px;font-weight:bold;padding-left:20px;padding-right:20px;") }}
+    </div>
+
+    </form>
+
+  </div>
+
+
+
+{% endblock %}

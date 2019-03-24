@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SAYWHAT.SG</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{url_for('static',filename='vendor/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="https://unpkg.com/popmotion/dist/popmotion.global.min.js"></script>
+
+
+    <!-- Custom styles for this template -->
+    <link href="{{url_for('static',filename='css/styles.css')}}" rel="stylesheet">
+    <link href="{{url_for('static',filename='css/animate.css')}}" rel="stylesheet">
+
+  </head>
+
+  <body class="index-reg-bg">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand animated" href="/">saywhat.sg</a>
+      <a class="navbar-brand animated" style="color:#343239;opacity:0.65">Welcome, {{ current_user.username }}</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-item nav-link" href="/yourquestions">Your Questions</a>
+          <a class="nav-item nav-link" href="/youranswers">Your Answers</a>
+          <a class="nav-item nav-link" href="/askquestion">Ask Question</a>
+          <a class="nav-item nav-link" href="/redeem">Redeem Gift</a>
+          <a class="nav-item nav-link" href="/logout">Log Out</a>
+        </div>
+      </div>
+    </nav>
+
+
+    {% block content %}
+
+    {% endblock %}
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{url_for('static',filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+  </body>
+
+</html>

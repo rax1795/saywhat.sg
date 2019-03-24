@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container">
+
+  <br><br>
+
+  <h1 style="text-align:center;font-size:60px" class="header-text animate animated flipInX">Results for this question</h1>
+
+  <div class="card" style="width:700px !important; margin: 0 auto; float: none; margin-bottom: 10px; ">
+    <div>
+      <canvas id="canvas"></canvas>
+      {% if data == [] %}
+      <h1 style="text-align:center;font-size:15px" class="body-text animate animated flipInX">No one has answered this yet.</h1>
+      {% endif %}
+    </div>
+  </div>
+
+  <br>
+
+  <!-- <div class="row" style='display: flex; justify-content: center;'>
+    <div class="col-sm-3">
+      <button id='btnhover' type="button" class="btn btn-primary btn-lg" style='background-color:#343239 !important; border-color:#343239 !important; border-radius:30px; font-weight:bold;font-size:20px'>Download CSV</button>
+    </div>
+
+    <div class="col-sm-3" style='display: flex; justify-content: center;'>
+      <button id='btnhover2' type="button" class="btn btn-primary btn-lg" style='background-color:#343239 !important; border-color:#343239 !important; border-radius:30px; font-weight:bold;font-size:20px'>Generate API Link</button>
+    </div>
+  </div> -->
+
+<br><br>
+
+</div>
+
+
+<script>
+//   $('#btnhover').hover(
+//        function(){ $(this).addClass('animate animated pulse') },
+//        function(){ $(this).removeClass('animate animated pulse') }
+// )
+//
+// $('#btnhover2').hover(
+//      function(){ $(this).addClass('animate animated pulse') },
+//      function(){ $(this).removeClass('animate animated pulse') }
+// )
+
+  var labelsList = {{ labels|safe }}
+  console.log(labelsList)
+  var dataList = {{ data|safe }}
+  console.log(dataList)
+  // var labelsList = ['one','two','three'];
+  // var dataList = [1,2,3];
+  var colorList = [];
+  for (var i = 0; i < dataList.length; i++) {
+    colorList.push("rgba(240,61,51,1)")
+    }
+
+  var barChartData = {
+  labels: labelsList,
+  datasets: [
+    {
+      label: "Citizens voted",
+      data: dataList,
+      backgroundColor: colorList,
+      borderColor: colorList,
+      borderWidth: 1,
+    }
+  ]
+};
+
+  		window.onload = function() {
+  			var ctx = document.getElementById('canvas').getContext('2d');
+  			window.myBar = new Chart(ctx, {
+  				type: 'bar',
+  				data: barChartData,
+  				options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        fixedStepSize: 1,
+                        min: 0,
+                    }
+                }],
+            },
+  					responsive: true,
+  					legend: {
+  						position: 'top',
+  					},
+  					title: {
+  						display: true,
+  						text: 'Q. {{ name|safe }}'
+  					}
+  				}
+  			});
+
+  		};
+
+
+
+</script>
+
+
+
+
+{% endblock %}

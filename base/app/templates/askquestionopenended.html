@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container">
+
+  <br><br>
+
+
+  <h1 style="text-align:center;font-size:60px" class="header-text animate animated flipInX">Open-Ended Question</h1>
+    <br><br>
+    <h3 style="text-align:center;font-size:18px" class="body-text animate animated fadeIn">Ask about...</h3>
+
+    <div class="row">
+
+    <div class="col-sm">
+
+      <div class="card-deck" >
+
+        {% for x in newsTable %}
+
+  <a href='x[1]'><div class="card bg-secondary ; " style = "height:1.5rem;  opacity:0.5;border-radius:30px;border:none;box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.2);">
+    <div class="card-body" >
+          <p class="card-title body-text" style='color:	#FFFFFF;font-size:15px;text-align:center;height: 20px; line-height:1px;margin:-8px;'>Ask about {{ x[0] }}</p>
+    </div>
+  </div></a>
+
+    {% endfor %}
+
+</div>
+
+    </div>
+
+        </div>
+
+        <br><br>
+
+
+    <form form action="/askquestion/openendedsubmit"method='post'>
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+      <h3 style="text-align:center;font-size:25px" class="body-text animate animated fadeIn">Your Question:</h3>
+      <input type="text" name=question class="form-control body-text animate animated fadeIn" style='text-align:center;font-weight:bold;height:50px;border-radius: 40px;border:solid 0px;box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.2);' placeholder="Your glorious question..." required>
+
+
+    <br><br>
+
+    <div style='text-align:center'>
+      <input type='submit' class='btn btn-primary animate animated fadeIn' style='font-size:20px;font-weight:bold;padding-left:20px;padding-right:20px;'>
+    </div>
+
+    </form>
+
+  </div>
+
+
+
+{% endblock %}

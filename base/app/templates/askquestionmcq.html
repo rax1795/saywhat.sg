@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container">
+
+
+  <br><br>
+
+
+  <h1 style="text-align:center;font-size:60px" class="header-text animate animated flipInX">Multiple Choice Question</h1>
+    <br>
+
+    <h3 style="text-align:center;font-size:18px" class="body-text animate animated fadeIn">Ask about...</h3>
+
+    <div class="row">
+
+    <div class="col-sm">
+
+      <div class="card-deck" >
+
+        {% for x in newsTable %}
+
+  <a href='x[1]'><div class="card bg-secondary ; " style = "height:1.5rem;  opacity:0.5;border-radius:30px;border:none;box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.2);">
+    <div class="card-body" >
+          <p class="card-title body-text" style='color:	#FFFFFF;font-size:15px;text-align:center;height: 20px; line-height:1px;margin:-8px;'>{{ x[0] }}</p>
+    </div>
+  </div></a>
+
+    {% endfor %}
+</div>
+
+
+    </div>
+
+        </div>
+
+        <br><br>
+
+        <!--  -->        <!--  -->        <!--  -->        <!--  -->        <!--  -->        <!--  -->
+
+    <form form action="/askquestion/mcqsubmit" method='post'>
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+      <h3 style="text-align:center;font-size:25px" class="body-text animate animated fadeIn">Your Question:</h3>
+      <input type="text" name=question class="form-control body-text animate animated fadeIn" style='text-align:center;font-weight:bold;height:50px;border-radius: 40px;border:solid 0px;box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.2);' placeholder="Your glorious question..." required>
+
+
+    <br><br>
+
+    <h3 style="text-align:center;font-size:25px" class="body-text animate animated fadeIn">Number of Answers (2 to 6)</h3>
+    <div class="col-4" style='display: block; margin:0 auto;'>
+      <input id='dynaField' name=number type="number" min="2" max="6" oninput="validity.valid||(value='');" class="form-control body-text animate animated fadeIn" style='text-align:center;font-weight:bold;height:50px;border-radius: 40px;border:solid 0px;box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.2);' placeholder="Number of Answers" required>
+    </div>
+
+    <br><br>
+
+    <div id='outputArea' class="col-8" style='display: block; margin:0 auto;'>
+
+    </div>
+
+
+    <br>
+
+        <div style='text-align:center'>
+          <input type='submit' class='btn btn-primary animate animated fadeIn' style='font-size:20px;font-weight:bold;padding-left:20px;padding-right:20px;'>
+        </div>
+
+    <br><br>
+
+
+
+
+
+  </div>
+
+<script>
+
+  $(document).ready(function () {
+    $('#dynaField').on('change',function(){
+       var htmlString = "";
+       var len = $(this).val();
+       console.log(len);
+       for (var i = 0; i < len; i++) {
+         htmlString += "<input id='threefield' name='option"+i + "'type='text' class='form-control body-text animate animated fadeIn' style='text-align:center;font-weight:bold;height:50px;border-radius: 40px;border:solid 0px;box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.2);' placeholder='Answer " + (i+1) + " ' required><br>"
+       }
+       $("#outputArea").html(htmlString);
+
+   });
+
+  });
+
+
+
+</script>
+
+
+
+
+{% endblock %}
